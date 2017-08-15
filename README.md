@@ -101,7 +101,7 @@ for i, c in d.items():
 
 print( "".join([ungo[c] for c in list(source)]) )
 ```
-### 五省の暗号化の復号化
+### 五省の暗号化の復号化[1]
 こんな風に復号します
 ```python
 s = """不あ致
@@ -119,10 +119,11 @@ for i, c in d.items():
 print( "".join([ungo[c] for c in list(s)]) )
 ```
 
-### pythonのソースコードに組み込む
+### pythonのソースコードに組み込む（手作業）
 DjangoやいくつかのPurePythonで書かれたモジュールならば、Pythonに組み込むことができます  
+
 例えば、thisモジュールならばここを編集します  
 ```console
 $ ls Python-3.6.2/Lib/this.py
-```no```c
-pythonのソースコードであるここ
+```
+ここに五省の復号化を記入にます
