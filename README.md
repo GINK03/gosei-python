@@ -1,4 +1,4 @@
-# 五省-蛇
+# 五省-Python
 
 ## import thisの哲学
 ```console
@@ -114,12 +114,38 @@ for i,c in enumerate(sorted(list(set(s)))):
 
 ungo = {}
 for i, c in d.items():
-  ungo[c] = d[abs(i-1)%len(d)]
+  ungo[c] = d[(i-1)%len(d)]
 
 print( "".join([ungo[c] for c in list(s)]) )
 ```
 
-### pythonのソースコードに組み込む（手作業）
+###　pythonのソースコードに五省を組み込む(patch)
+パッチファイルを用意したので、任意のバージョンのPython3に適応してコンパイルすることで、インストールできます  
+```console
+$ patch Python-3.{YOUR_VERSION}/Lib/this.py patch.txt
+$ cd Python-3.{YOUR_VERSION}
+$ ./configure
+$ make -j16
+$ sudo make install
+$ python3 
+Python 3.6.2 (default, Aug 15 2017, 23:45:37) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import this
+一、至誠にもとるなかりしか
+真心に反する点はなかったか
+一、言行に恥はづるなかりしか
+言行不一致な点はなかったか
+一、気力にかくるなかりしか
+精神力は十分であったか
+一、努力にうらみなかりしか
+十分に努力誠したか
+一、不精にわたるなかりしか
+最後まで十分に取り組んだか
+>>> 
+```
+
+### pythonのソースコードに五省を組み込む（手作業）
 DjangoやいくつかのPurePythonで書かれたモジュールならば、Pythonに組み込むことができます  
 
 例えば、thisモジュールならばここを編集します  
