@@ -102,6 +102,27 @@ for i, c in d.items():
 print( "".join([ungo[c] for c in list(source)]) )
 ```
 ### 五省の暗号化の復号化
+こんな風に復号します
+```python
+s = """不あ致
+はらなわにくるすく、神恥は取たわ真まにくづだく、不あ誠言は最までわにくるすく、誠言分不行に真まにくづだく、不あ点努はくしわにくるすく、組精努ま反力とうづだく、不あ十努はかりもにくるすく、反力は十努
+すだく、不あ分組はんだわにくるすく、気心みと反力は後る至一っく"""
 
-### 五省の暗号化する
-### 五省の暗号化する
+d = {}
+for i,c in enumerate(sorted(list(set(s)))):
+  d[i] = c
+
+ungo = {}
+for i, c in d.items():
+  ungo[c] = d[abs(i-1)%len(d)]
+
+print( "".join([ungo[c] for c in list(s)]) )
+```
+
+### pythonのソースコードに組み込む
+DjangoやいくつかのPurePythonで書かれたモジュールならば、Pythonに組み込むことができます  
+例えば、thisモジュールならばここを編集します  
+```console
+$ ls Python-3.6.2/Lib/this.py
+```no```c
+pythonのソースコードであるここ
