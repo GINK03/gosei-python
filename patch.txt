@@ -1,0 +1,41 @@
+--- Python-3.6.2/Lib/this.py	2017-07-08 12:33:27.000000000 +0900
++++ Python-3.6.2.edit/Lib/this.py	2017-08-16 04:20:13.120597076 +0900
+@@ -1,28 +1,13 @@
+-s = """Gur Mra bs Clguba, ol Gvz Crgref
+-
+-Ornhgvshy vf orggre guna htyl.
+-Rkcyvpvg vf orggre guna vzcyvpvg.
+-Fvzcyr vf orggre guna pbzcyrk.
+-Pbzcyrk vf orggre guna pbzcyvpngrq.
+-Syng vf orggre guna arfgrq.
+-Fcnefr vf orggre guna qrafr.
+-Ernqnovyvgl pbhagf.
+-Fcrpvny pnfrf nera'g fcrpvny rabhtu gb oernx gur ehyrf.
+-Nygubhtu cenpgvpnyvgl orngf chevgl.
+-Reebef fubhyq arire cnff fvyragyl.
+-Hayrff rkcyvpvgyl fvyraprq.
+-Va gur snpr bs nzovthvgl, ershfr gur grzcgngvba gb thrff.
+-Gurer fubhyq or bar-- naq cersrenoyl bayl bar --boivbhf jnl gb qb vg.
+-Nygubhtu gung jnl znl abg or boivbhf ng svefg hayrff lbh'er Qhgpu.
+-Abj vf orggre guna arire.
+-Nygubhtu arire vf bsgra orggre guna *evtug* abj.
+-Vs gur vzcyrzragngvba vf uneq gb rkcynva, vg'f n onq vqrn.
+-Vs gur vzcyrzragngvba vf rnfl gb rkcynva, vg znl or n tbbq vqrn.
+-Anzrfcnprf ner bar ubaxvat terng vqrn -- yrg'f qb zber bs gubfr!"""
++s = """不あ致
++はらなわにくるすく、神恥は取たわ真まにくづだく、不あ誠言は最までわにくるすく、誠言分不行に真まにくづだく、不あ点努はくしわにくるすく、組精努ま反力とうづだく、不あ十努はかりもにくるすく、反力は十努
++すだく、不あ分組はんだわにくるすく、気心みと反力は後る至一っく"""
+ 
+ d = {}
+-for c in (65, 97):
+-    for i in range(26):
+-        d[chr(i+c)] = chr((i+13) % 26 + c)
++for i,c in enumerate(sorted(list(set(s)))):
++  d[i] = c
++
++ungo = {}
++for i, c in d.items():
++  ungo[c] = d[(i-1)%len(d)]
+ 
+-print("".join([d.get(c, c) for c in s]))
++print( "".join([ungo[c] for c in list(s)]) )

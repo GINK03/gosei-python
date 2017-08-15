@@ -32,6 +32,6 @@ for i,c in enumerate(sorted(list(set(s)))):
 
 ungo = {}
 for i, c in d.items():
-  ungo[c] = d[abs(i-1)%len(d)]
+  ungo[c] = d[(i-1)%len(d)]
 
 print( "".join([ungo[c] for c in list(s)]) )
