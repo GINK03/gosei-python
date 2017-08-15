@@ -119,7 +119,8 @@ for i, c in d.items():
 print( "".join([ungo[c] for c in list(s)]) )
 ```
 
-###　pythonのソースコードに五省を組み込む(patch)
+### pythonのソースコードに五省を組み込む(patch)  
+
 パッチファイルを用意したので、任意のバージョンのPython3に適応してコンパイルすることで、インストールできます  
 ```console
 $ patch Python-3.{YOUR_VERSION}/Lib/this.py patch.txt
