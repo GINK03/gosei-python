@@ -101,6 +101,7 @@ for i, c in d.items():
 
 print( "".join([ungo[c] for c in list(source)]) )
 ```
+
 ### 五省の暗号化の復号化[1]
 こんな風に復号します
 ```python
@@ -155,6 +156,18 @@ $ ls Python-3.6.2/Lib/this.py
 ```
 ここに五省の復号化を記入にます
 
+### libsslの利用できるようにする
+githubのissueに一部のsslが利用できない問題が上がっていましたが、コードの中をコメントアウトしてlibssl-devをインストールすることで利用できます  
+
+>I had this issue as well.
+The problem seems to stem from the ssl module not being enabled when building Python 3.6.0.
+I got around this by uncommenting lines 209-212 in Python-3.6.0/Modules/Setup
+SSL=/usr/local/ssl
+_ssl _ssl.c \
+        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
+        -L$(SSL)/lib -lssl -lcrypto
+and make sure libssl-dev is installed (this is the package for debian, anyway).
+Once that's done, do ./configure, make, and make install again and it should work.
 
 ### 多分しばらく利用できます
 以上です
